@@ -1,0 +1,12 @@
+f:\Users\Dottore\source\repos\Graphs\bin\Release\net7.0\Graphs.deps.json
+f:\Users\Dottore\source\repos\Graphs\bin\Release\net7.0\Graphs.dll
+f:\Users\Dottore\source\repos\Graphs\bin\Release\net7.0\Graphs.pdb
+f:\Users\Dottore\source\repos\Graphs\obj\Release\net7.0\Graphs.csproj.AssemblyReference.cache
+f:\Users\Dottore\source\repos\Graphs\obj\Release\net7.0\Graphs.GeneratedMSBuildEditorConfig.editorconfig
+f:\Users\Dottore\source\repos\Graphs\obj\Release\net7.0\Graphs.AssemblyInfoInputs.cache
+f:\Users\Dottore\source\repos\Graphs\obj\Release\net7.0\Graphs.AssemblyInfo.cs
+f:\Users\Dottore\source\repos\Graphs\obj\Release\net7.0\Graphs.csproj.CoreCompileInputs.cache
+f:\Users\Dottore\source\repos\Graphs\obj\Release\net7.0\Graphs.dll
+f:\Users\Dottore\source\repos\Graphs\obj\Release\net7.0\refint\Graphs.dll
+f:\Users\Dottore\source\repos\Graphs\obj\Release\net7.0\Graphs.pdb
+f:\Users\Dottore\source\repos\Graphs\obj\Release\net7.0\ref\Graphs.dll

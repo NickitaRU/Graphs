@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Graphs</id>
+    <version>1.0.0</version>
+    <authors>Graphs</authors>
+    <description>Package Description</description>
+    <repository type="git" />
+    <dependencies>
+      <group targetFramework="net7.0">
+        <dependency id="Extended.Wpf.Toolkit" version="4.6.1" exclude="Build,Analyzers" />
+        <dependency id="System.Drawing.Common" version="8.0.4" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="f:\Users\Dottore\source\repos\Graphs\bin\Release\net7.0\Graphs.dll" target="lib\net7.0\Graphs.dll" />
+  </files>
+</package>

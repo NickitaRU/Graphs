@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "vIK6ggIruo4=",
+  "success": true,
+  "projectFilePath": "f:\\Users\\Dottore\\source\\repos\\Graphs\\MyLocalGraphsdfdfdfdfdfdfd.csproj",
+  "expectedPackageFiles": [
+    "f:\\Users\\Dottore\\.nuget\\packages\\extended.wpf.toolkit\\4.6.1\\extended.wpf.toolkit.4.6.1.nupkg.sha512",
+    "f:\\Users\\Dottore\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
+    "f:\\Users\\Dottore\\.nuget\\packages\\system.drawing.common\\8.0.4\\system.drawing.common.8.0.4.nupkg.sha512",
+    "f:\\Users\\Dottore\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
+    "f:\\Users\\Dottore\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "f:\\Users\\Dottore\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512"
+  ],
+  "logs": []
+}
