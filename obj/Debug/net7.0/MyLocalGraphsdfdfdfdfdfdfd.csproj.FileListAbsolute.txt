@@ -1,0 +1,13 @@
+f:\Users\Dottore\source\repos\Graphs\bin\Debug\net7.0\MyLocalGraphsdfdfdfdfdfdfd.deps.json
+f:\Users\Dottore\source\repos\Graphs\bin\Debug\net7.0\MyLocalGraphsdfdfdfdfdfdfd.dll
+f:\Users\Dottore\source\repos\Graphs\bin\Debug\net7.0\MyLocalGraphsdfdfdfdfdfdfd.pdb
+f:\Users\Dottore\source\repos\Graphs\obj\Debug\net7.0\MyLocalGraphsdfdfdfdfdfdfd.csproj.AssemblyReference.cache
+f:\Users\Dottore\source\repos\Graphs\obj\Debug\net7.0\MyLocalGraphsdfdfdfdfdfdfd.GeneratedMSBuildEditorConfig.editorconfig
+f:\Users\Dottore\source\repos\Graphs\obj\Debug\net7.0\MyLocalGraphsdfdfdfdfdfdfd.AssemblyInfoInputs.cache
+f:\Users\Dottore\source\repos\Graphs\obj\Debug\net7.0\MyLocalGraphsdfdfdfdfdfdfd.AssemblyInfo.cs
+f:\Users\Dottore\source\repos\Graphs\obj\Debug\net7.0\MyLocalGraphsdfdfdfdfdfdfd.csproj.CoreCompileInputs.cache
+f:\Users\Dottore\source\repos\Graphs\obj\Debug\net7.0\MyLocalGraphsdfdfdfdfdfdfd.sourcelink.json
+f:\Users\Dottore\source\repos\Graphs\obj\Debug\net7.0\MyLocalGraphsdfdfdfdfdfdfd.dll
+f:\Users\Dottore\source\repos\Graphs\obj\Debug\net7.0\refint\MyLocalGraphsdfdfdfdfdfdfd.dll
+f:\Users\Dottore\source\repos\Graphs\obj\Debug\net7.0\MyLocalGraphsdfdfdfdfdfdfd.pdb
+f:\Users\Dottore\source\repos\Graphs\obj\Debug\net7.0\ref\MyLocalGraphsdfdfdfdfdfdfd.dll
