@@ -5,7 +5,7 @@
     <version>1.0.0</version>
     <authors>MyLocalGraphsdfdfdfdfdfdfd</authors>
     <description>Package Description</description>
-    <repository type="git" />
+    <repository type="git" commit="ac5b5c8388d67e5f37f495ff16111c3fee0d125e" />
     <dependencies>
       <group targetFramework="net7.0">
         <dependency id="Extended.Wpf.Toolkit" version="4.6.1" exclude="Build,Analyzers" />

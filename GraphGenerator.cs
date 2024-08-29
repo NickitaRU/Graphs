@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 
 namespace Graphs
@@ -39,27 +40,24 @@ namespace Graphs
 
                 double valOffset = valDiff / Math.Ceiling((height - 45f - dateTimeSize.Height) / (dateTimeSize.Height + 50));
                 if (valOffset % 10 > 5) valOffset += 10 - valOffset % 10; else valOffset -= valOffset % 10;
-                Console.WriteLine((valDiff / ((height - 45f - dateTimeSize.Height) / (dateTimeSize.Height + 20))).ToString() + ": " + valOffset.ToString());
-                Console.WriteLine(Math.Ceiling((height - 45f - dateTimeSize.Height) / (dateTimeSize.Height + 50)));
+                float minY = height - 135 - (dateTimeSize.Height + 45) * 0 + 45 + dateTimeSize.Height;
+                float maxY = height - 135 - (dateTimeSize.Height + 45) * (float)(Math.Ceiling((height - 45f - dateTimeSize.Height) / (dateTimeSize.Height + 50))) + 45 + dateTimeSize.Height;
                 for (int i = 0; i < Math.Ceiling((height - 45f - dateTimeSize.Height) / (dateTimeSize.Height + 50)) + 1; i++)
                 {
-                    gr.DrawString((minVal + (valOffset * i)).ToString(), font, new SolidBrush(pen.Color), new PointF(0, height - 175 - (dateTimeSize.Height + 45) * i + 45 + dateTimeSize.Height));
-                    if (width == maxWidth) gr.DrawString((minVal + (valOffset * i)).ToString(), font, new SolidBrush(pen.Color), new PointF(width - gr.MeasureString(maxVal.ToString(), font).Width - 5, height - 175 - (dateTimeSize.Height + 45) * i + 45 + dateTimeSize.Height));
-                    Console.WriteLine((minVal + (valOffset * i)).ToString());
+                    gr.DrawString((minVal + (valOffset * i)).ToString(), font, new SolidBrush(pen.Color), new PointF(0, height - 135 - (dateTimeSize.Height + 45) * i + 45 + dateTimeSize.Height - gr.MeasureString((minVal + (valOffset * i)).ToString(), font).Height));
+                    if (width == maxWidth) gr.DrawString((minVal + (valOffset * i)).ToString(), font, new SolidBrush(pen.Color), new PointF(width - gr.MeasureString(maxVal.ToString(), font).Width - 5, height - 135 - (dateTimeSize.Height + 45) * i + 45 + dateTimeSize.Height - gr.MeasureString((minVal + (valOffset * i)).ToString(), font).Height));
                 }
-                float minY = height - 175 + 45 + dateTimeSize.Height;
-                float maxY = height - 175 - (dateTimeSize.Height + 45) * (float)(Math.Ceiling((height - 45f - dateTimeSize.Height) / (dateTimeSize.Height + 50))) + 45 + dateTimeSize.Height;
-                Console.WriteLine(nameof(minY) + ": " + minY + " " + nameof(maxY) + ": " + maxY);
                 if (width < maxWidth)
                 {
                     var valuesEnumerator = values.GetEnumerator();
                     PointF[] points = new PointF[values.Count];
+                    Console.WriteLine("1");
                     for (int i = 0; i < values.Count; i++)
                     {
                         valuesEnumerator.MoveNext();
                         var item = valuesEnumerator.Current;
                         gr.DrawString(item.Key.ToString("dd.MM.yyyy"), font, new SolidBrush(pen.Color), new PointF(gr.MeasureString(maxVal.ToString(), font).Width + 25 + 2 + (dateTimeSize.Width + 5) * i, height - 25));
-                        points[i] = new PointF(gr.MeasureString(maxVal.ToString(), font).Width + 25 + dateTimeSize.Width / 2 + (dateTimeSize.Width + 5) * (i), height - 30 - dateTimeSize.Height - item.Value == minVal ? 10 : (new NumInterval(0, height - 30 - dateTimeSize.Height).GetFromAnotherAgainstProportional((float)item.Value, new((float)rawMinVal, (float)rawMaxVal))));
+                        points[i] = new PointF(gr.MeasureString(maxVal.ToString(), font).Width + 25 + dateTimeSize.Width / 2 + (dateTimeSize.Width + 5) * (i), (new NumInterval(maxY, minY).GetFromAnother((float)item.Value, new((float)minVal, (float)maxVal))));
                     }
                     gr.DrawCurve(pen, points);
                 }
@@ -70,11 +68,9 @@ namespace Graphs
                     DateTime end = values.Keys.Last();
                     TimeSpan dateSpan = end - start;
                     double offset = dateSpan.Days / 9d;
-                    Console.WriteLine($"daysOffset: {offset}");
                     for (int i = 0; (i < 10); i++)
                     {
                         DateTime curr = start.AddDays(offset * i);
-                        Console.WriteLine($"{i}. TotalOffset: {offset * i}");
                         gr.DrawString(curr.ToString("dd.MM.yyyy"), font, new SolidBrush(pen.Color), new PointF(gr.MeasureString(maxVal.ToString(), font).Width + 7 + 2 + 10 + (dateTimeSize.Width + 15 + (dateTimeSize.Width / 10f) - (20 / 10f)) * i, height - 40));
                     }
                     float step = (width - 40 - (gr.MeasureString(maxVal.ToString(), font).Width * 2)) / values.Count;
@@ -125,18 +121,15 @@ namespace Graphs
                     {
                         for (int i = 0; i < barrier; i++)
                         {
-
                             var item = values.Values.ToArray()[i];
-                            pointsM[i] = new PointF(gr.MeasureString(maxVal.ToString(), font).Width + 30 + step * (i), height - 30 - dateTimeSize.Height - item == minVal ? 10 : (new NumInterval(10, height - 40 - dateTimeSize.Height).GetFromAnother((float)item, new((float)minVal, (float)maxVal))));
+                            pointsM[i] = new PointF(gr.MeasureString(maxVal.ToString(), font).Width + 30 + step * (i), (new NumInterval(maxY, minY).GetFromAnotherAgainstProportional((float)item, new((float)minVal, (float)maxVal))));
 
-                            Console.WriteLine(pointsM[i].X + " x " + pointsM[i].Y + " y value " + item);
                         }
                     }
                     gr.DrawCurve(new Pen(Brushes.Black, 3), pointsM, 0);
                 }
                 return bitmap;
             }
-            int cock;
             throw new ArgumentNullException(nameof(values));
 
 

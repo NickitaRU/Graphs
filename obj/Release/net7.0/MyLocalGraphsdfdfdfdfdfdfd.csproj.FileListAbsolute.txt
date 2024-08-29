@@ -10,3 +10,4 @@ f:\Users\Dottore\source\repos\Graphs\obj\Release\net7.0\MyLocalGraphsdfdfdfdfdfd
 f:\Users\Dottore\source\repos\Graphs\obj\Release\net7.0\refint\MyLocalGraphsdfdfdfdfdfdfd.dll
 f:\Users\Dottore\source\repos\Graphs\obj\Release\net7.0\MyLocalGraphsdfdfdfdfdfdfd.pdb
 f:\Users\Dottore\source\repos\Graphs\obj\Release\net7.0\ref\MyLocalGraphsdfdfdfdfdfdfd.dll
+f:\Users\Dottore\source\repos\Graphs\obj\Release\net7.0\MyLocalGraphsdfdfdfdfdfdfd.sourcelink.json
