@@ -11,6 +11,7 @@ namespace Graphs
         {
             if (values != null)
             {
+                if(values.Count == 0) values.Add(DateTime.UtcNow, 0); 
                 Font font = new Font("Multiround Pro", 20);
                 Graphics gr = Graphics.FromImage(new Bitmap(1, 1));
                 SizeF dateTimeSize = gr.MeasureString("00.00.0000", font);
@@ -21,7 +22,7 @@ namespace Graphs
                 double rawMaxVal = values.Values.Max();
 
                 double minVal = rawMinVal - rawMinVal % 10;
-                double maxVal = rawMaxVal + (35 - rawMaxVal % 10);
+                double maxVal = rawMaxVal + (35 - rawMaxVal % 10) + 20;
 
                 double valDiff = maxVal - minVal;
 
@@ -51,15 +52,15 @@ namespace Graphs
                 {
                     var valuesEnumerator = values.GetEnumerator();
                     PointF[] points = new PointF[values.Count];
-                    Console.WriteLine("1");
                     for (int i = 0; i < values.Count; i++)
                     {
                         valuesEnumerator.MoveNext();
                         var item = valuesEnumerator.Current;
                         gr.DrawString(item.Key.ToString("dd.MM.yyyy"), font, new SolidBrush(pen.Color), new PointF(gr.MeasureString(maxVal.ToString(), font).Width + 25 + 2 + (dateTimeSize.Width + 5) * i, height - 25));
-                        points[i] = new PointF(gr.MeasureString(maxVal.ToString(), font).Width + 25 + dateTimeSize.Width / 2 + (dateTimeSize.Width + 5) * (i), (new NumInterval(maxY, minY).GetFromAnother((float)item.Value, new((float)minVal, (float)maxVal))));
+                        points[i] = new PointF(gr.MeasureString(maxVal.ToString(), font).Width + 25 + dateTimeSize.Width / 2 + (dateTimeSize.Width + 5) * (i), (new NumInterval(maxY, minY).GetFromAnotherAgainstProportional((float)item.Value, new((float)rawMinVal, (float)maxVal))));
+                        Console.WriteLine(points[i].ToString() + " item.Value: " + item.Value.ToString() + " item.key: " + item.Key + " rawMinVal: " + rawMinVal + " rawMaxVal: " + rawMaxVal + " i: " + i + " pointsLenght: " + points.Length + " gr.Size: " + bitmap.Size);
                     }
-                    gr.DrawCurve(pen, points);
+                    gr.DrawCurve(new Pen(Brushes.Black, 3), points);
                 }
                 else
                 {
@@ -74,7 +75,6 @@ namespace Graphs
                         gr.DrawString(curr.ToString("dd.MM.yyyy"), font, new SolidBrush(pen.Color), new PointF(gr.MeasureString(maxVal.ToString(), font).Width + 7 + 2 + 10 + (dateTimeSize.Width + 15 + (dateTimeSize.Width / 10f) - (20 / 10f)) * i, height - 40));
                     }
                     float step = (width - 40 - (gr.MeasureString(maxVal.ToString(), font).Width * 2)) / values.Count;
-                    float prevoiusGroupLength = 0;
                     short barrier = values.Count > 365
                         ? (short)365 : (short)values.Count;
                     bool isNeededToCompact = values.Count > 365;
@@ -122,8 +122,8 @@ namespace Graphs
                         for (int i = 0; i < barrier; i++)
                         {
                             var item = values.Values.ToArray()[i];
-                            pointsM[i] = new PointF(gr.MeasureString(maxVal.ToString(), font).Width + 30 + step * (i), (new NumInterval(maxY, minY).GetFromAnotherAgainstProportional((float)item, new((float)minVal, (float)maxVal))));
-
+                            pointsM[i] = new PointF(gr.MeasureString(maxVal.ToString(), font).Width + 30 + step * (i), (new NumInterval(maxY, minY).GetFromAnotherAgainstProportional((float)item, new((float)rawMinVal, (float)rawMaxVal))));
+                            Console.WriteLine("Point:" + pointsM[i]);
                         }
                     }
                     gr.DrawCurve(new Pen(Brushes.Black, 3), pointsM, 0);

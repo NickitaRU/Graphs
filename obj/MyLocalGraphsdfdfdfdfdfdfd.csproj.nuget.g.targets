@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)system.runtime.compilerservices.unsafe\6.0.0\buildTransitive\netcoreapp2.0\System.Runtime.CompilerServices.Unsafe.targets" Condition="Exists('$(NuGetPackageRoot)system.runtime.compilerservices.unsafe\6.0.0\buildTransitive\netcoreapp2.0\System.Runtime.CompilerServices.Unsafe.targets')" />
+    <Import Project="$(NuGetPackageRoot)system.text.encodings.web\6.0.0\buildTransitive\netcoreapp2.0\System.Text.Encodings.Web.targets" Condition="Exists('$(NuGetPackageRoot)system.text.encodings.web\6.0.0\buildTransitive\netcoreapp2.0\System.Text.Encodings.Web.targets')" />
+    <Import Project="$(NuGetPackageRoot)system.text.json\6.0.9\buildTransitive\netcoreapp3.1\System.Text.Json.targets" Condition="Exists('$(NuGetPackageRoot)system.text.json\6.0.9\buildTransitive\netcoreapp3.1\System.Text.Json.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.win32.systemevents\8.0.0\buildTransitive\netcoreapp2.0\Microsoft.Win32.SystemEvents.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.win32.systemevents\8.0.0\buildTransitive\netcoreapp2.0\Microsoft.Win32.SystemEvents.targets')" />
     <Import Project="$(NuGetPackageRoot)system.drawing.common\8.0.4\buildTransitive\netcoreapp2.0\System.Drawing.Common.targets" Condition="Exists('$(NuGetPackageRoot)system.drawing.common\8.0.4\buildTransitive\netcoreapp2.0\System.Drawing.Common.targets')" />
   </ImportGroup>
